@@ -6,4 +6,8 @@ class Flight < ApplicationRecord
   validates :arrival_airport_id, presence: true
   validates :duration, presence: true
   validates :start_datetime, presence: true
+
+  def departure_date_formatted
+    self.start_datetime.strftime("%m/%d/%Y")
+  end
 end

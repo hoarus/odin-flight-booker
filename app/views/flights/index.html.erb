@@ -7,6 +7,7 @@
     <th>Departure Date</th>
     <th>Departure Time</th>
     <th>Duration</th>
+    <th>Arrival Date</th>
     <th>Arrival Time</th>
   </tr>
   <% @flights.order(:start_datetime).each do |flight|%>
@@ -16,7 +17,8 @@
       <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
       <td><%= flight.start_datetime.strftime("%H:%M %p") %></td>
       <td><%= flight.duration.strftime("%H:%M") %></td>
-      <td><%= (flight.start_datetime - flight.duration).to_datetime %></td>
+      <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
+      <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
     </tr>
   <% end %>
 

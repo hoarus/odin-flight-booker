@@ -1,0 +1,23 @@
+<h1>Welcome to flights!</h1>
+
+<table>
+  <tr>
+    <th>Departure Airport</th>
+    <th>Arrival Airport</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Duration</th>
+    <th>Arrival Time</th>
+  </tr>
+  <% @flights.order(:start_datetime).each do |flight|%>
+    <tr>
+      <td><%= flight.departure_airport.city %></td>
+      <td><%= flight.arrival_airport.city %></td>
+      <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
+      <td><%= flight.start_datetime.strftime("%H:%M %p") %></td>
+      <td><%= flight.duration.strftime("%H:%M") %></td>
+      <td><%= (flight.start_datetime - flight.duration).to_datetime %></td>
+    </tr>
+  <% end %>
+
+</table>

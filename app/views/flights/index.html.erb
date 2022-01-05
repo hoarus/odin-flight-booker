@@ -23,6 +23,7 @@
     <th>Duration</th>
     <th>Arrival Date</th>
     <th>Arrival Time</th>
+    <th><%= label_tag(:select, "Select Flight")%></th>
   </tr>
   <% @flights.order(:start_datetime).each do |flight|%>
     <tr>
@@ -33,8 +34,12 @@
       <td><%= flight.duration.strftime("%H:%M") %></td>
       <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
       <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
+      <td><%= radio_button_tag(:select, "selected") %></td>
     </tr>
   <% end %>
 
 </table>
+
+
+<p> <%= params %> </p>
 

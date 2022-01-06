@@ -14,31 +14,34 @@
 <% end %>
 
 <h2>Flight Details</h2>
-<table>
-  <tr>
-    <th>Departure Airport</th>
-    <th>Arrival Airport</th>
-    <th>Departure Date</th>
-    <th>Departure Time</th>
-    <th>Duration</th>
-    <th>Arrival Date</th>
-    <th>Arrival Time</th>
-    <th><%= label_tag(:select, "Select Flight")%></th>
-  </tr>
-  <% @flights.order(:start_datetime).each do |flight|%>
+<%= form_tag("", method: "get") do %>
+  <table>
     <tr>
-      <td><%= flight.departure_airport.city %></td>
-      <td><%= flight.arrival_airport.city %></td>
-      <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
-      <td><%= flight.start_datetime.strftime("%H:%M") %></td>
-      <td><%= flight.duration.strftime("%H:%M") %></td>
-      <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
-      <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
-      <td><%= radio_button_tag(:select, "selected") %></td>
+      <th>Departure Airport</th>
+      <th>Arrival Airport</th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+      <th>Duration</th>
+      <th>Arrival Date</th>
+      <th>Arrival Time</th>
+      <th><%= label_tag(:select, "Select Flight")%></th>
     </tr>
-  <% end %>
+    <% @flights.order(:start_datetime).each do |flight|%>
+      <tr>
+        <td><%= flight.departure_airport.city %></td>
+        <td><%= flight.arrival_airport.city %></td>
+        <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
+        <td><%= flight.start_datetime.strftime("%H:%M") %></td>
+        <td><%= flight.duration.strftime("%H:%M") %></td>
+        <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
+        <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
+        <td><%= radio_button_tag(:select, flight.id) %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= submit_tag("Select Flight") %>
+<% end %>
 
-</table>
 
 
 <p> <%= params %> </p>

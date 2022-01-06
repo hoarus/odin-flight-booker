@@ -10,5 +10,29 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    #@passenger = @booking.passengers.build(booking_params[:passenger])
+
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to @booking, notice: "Booking was successfully created." }
+        format.json { render :show, status: :created, location: @booking }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+  
+  def show
+  end
+
+  private
+  def booking_params
+    params.require(:booking).permit(
+      :flight_id, 
+      passenger: [:name, :email])
+  end
+  
 end

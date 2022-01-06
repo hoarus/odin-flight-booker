@@ -33,7 +33,7 @@
 
 
 
-<%= form_for @booking, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+<%= form_for (@booking) do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
   <% @number_of_passengers.times do |i|%>
     <h2>Passenger #<%=i+1%> Details</h2>
@@ -41,7 +41,7 @@
       <%= p_form.label(:name, "Name") %>
       <%= p_form.text_field(:name) %>
       <%= p_form.label(:email, "Email Address:") %>
-      <%= p_form.text_field(:name) %>
+      <%= p_form.text_field(:email) %>
     <% end %>
   <% end %>
   <br><br>

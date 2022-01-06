@@ -67,3 +67,14 @@ A typical airline booking flow:
     Enter desired dates / airports and click “Search”
     Choose from among a list of available flights
     Enter passenger information for all passengers
+
+
+      def test
+    if @booking.save
+      flash.notice = "Booking was successfully created."
+      redirect_to @booking
+    else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+    end
+  end

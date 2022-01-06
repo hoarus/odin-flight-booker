@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+  
   def new
     @booking = Booking.new
     @flight = (Flight.find_by id: params[:selected_flight_id])
@@ -7,7 +9,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    #@passenger = @booking.passengers.build(booking_params[:passenger])
+    @flight = (Flight.find_by id: params[:booking][:flight_id])
 
     respond_to do |format|
       if @booking.save
@@ -18,6 +20,8 @@ class BookingsController < ApplicationController
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
+
+   
   end
 
   

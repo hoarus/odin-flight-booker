@@ -1,3 +1,49 @@
 <h1>Welcome to the booking page</h1>
 
 <p><%= params%></p>
+
+<p><%= params[:selected_flight_id]%></p>
+
+<p><%= params[:number_of_passengers]%></p>
+
+
+
+<h2>Your Flight Details</h2>
+  <table>
+    <tr>
+      <th>Departure Airport</th>
+      <th>Arrival Airport</th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+      <th>Duration</th>
+      <th>Arrival Date</th>
+      <th>Arrival Time</th>
+    </tr>
+    <tr>
+      <td><%= @flight.departure_airport.city %></td>
+      <td><%= @flight.arrival_airport.city %></td>
+      <td><%= @flight.start_datetime.strftime("%d %b, %Y") %></td>
+      <td><%= @flight.start_datetime.strftime("%H:%M") %></td>
+      <td><%= @flight.duration.strftime("%H:%M") %></td>
+      <td><%= (@flight.start_datetime + @flight.duration).strftime("%d %b, %Y") %></td>
+      <td><%= (@flight.start_datetime + @flight.duration).strftime("%H:%M") %></td>
+    </tr>
+  </table>
+
+
+
+
+<%= form_for @booking, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+  <% @number_of_passengers.times do |i|%>
+    <h2>Passenger #<%=i+1%> Details</h2>
+    <%= f.fields_for @booking.passengers.build do |p_form| %>
+      <%= p_form.label(:name, "Name") %>
+      <%= p_form.text_field(:name) %>
+      <%= p_form.label(:email, "Email Address:") %>
+      <%= p_form.text_field(:name) %>
+    <% end %>
+  <% end %>
+  <br><br>
+  <%= f.submit %>
+<% end %>

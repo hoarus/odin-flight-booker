@@ -56,9 +56,13 @@ Passengers
   email:
   
   relationships:
-    - belongs to: flight
+    - belongs to: booking
     - has_many passengers AS co-passengers
     - belongs_to passengers AS co-passengers
+
+Bookings:
+ - belongs to: flight
+ - has_many passengers
 
 A typical airline booking flow:
 

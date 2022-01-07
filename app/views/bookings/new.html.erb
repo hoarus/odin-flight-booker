@@ -43,7 +43,6 @@
       <div>
       <% i += 1%>
       <h2>Passenger <%= "#{i}"%></h2>
-      <%= p_form.hidden_field :id, value: nil %>
       <%= p_form.label(:name, "Name") %>
       <%= p_form.text_field(:name) %>
       <%= p_form.label(:email, "Email Address:") %>

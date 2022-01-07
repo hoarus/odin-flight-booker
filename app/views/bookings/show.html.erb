@@ -1,1 +1,40 @@
-<h2>Congratulations!</h2>
+<h2>Your flight has been booked!</h2>
+
+<p>Your flight and passenger details are below.</p>
+
+
+<h2>Your Flight Details</h2>
+  <table>
+    <tr>
+      <th>Departure Airport</th>
+      <th>Arrival Airport</th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+      <th>Duration</th>
+      <th>Arrival Date</th>
+      <th>Arrival Time</th>
+    </tr>
+    <tr>
+      <td><%= @booking.flight.departure_airport.city %></td>
+      <td><%= @booking.flight.arrival_airport.city %></td>
+      <td><%= @booking.flight.start_datetime.strftime("%d %b, %Y") %></td>
+      <td><%= @booking.flight.start_datetime.strftime("%H:%M") %></td>
+      <td><%= @booking.flight.duration.strftime("%H:%M") %></td>
+      <td><%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%d %b, %Y") %></td>
+      <td><%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%H:%M") %></td>
+    </tr>
+  </table>
+
+  <h2>Passenger Details</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email Address</th>
+    </tr>
+    <% @booking.passengers.each do |passenger|%>
+    <tr>
+      <td><%= passenger.name %></td>
+      <td><%= passenger.email%></td>
+    </tr>
+    <% end%>
+  </table>

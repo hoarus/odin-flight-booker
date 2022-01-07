@@ -1,10 +1,14 @@
 class BookingsController < ApplicationController
  
   def new
+    unless params.include?("selected_flight_id")
+      redirect_back fallback_location: root_path
+    else
     @booking = Booking.new
     @flight = Flight.find(params[:selected_flight_id])
     @passengers_count = params[:number_of_passengers].to_i
     @passengers_count.times { @booking.passengers.build }
+    end
   end
 
   def create

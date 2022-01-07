@@ -1,10 +1,5 @@
 <h1>Welcome to the booking page</h1>
 
-<p><%= params%></p>
-
-<p><%= params[:selected_flight_id]%></p>
-
-<p><%= params[:number_of_passengers]%></p>
 
 
 
@@ -30,10 +25,6 @@
     </tr>
   </table>
 
-
-<h1> <%= @booking.inspect %> </h2>
-
-<h1> <%= @booking.passengers.inspect %> </h2>
 
 <%= form_for (@booking) do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>

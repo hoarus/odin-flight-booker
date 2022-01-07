@@ -2,7 +2,7 @@
 
 
 
-
+<div class ="container">
 <h2>Your Flight Details</h2>
   <table>
     <tr>
@@ -24,9 +24,10 @@
       <td><%= (@flight.start_datetime + @flight.duration).strftime("%H:%M") %></td>
     </tr>
   </table>
+</div>
 
-
-<%= form_for (@booking) do |f| %>
+<div class ="container">
+<%= form_for @booking, :html => {:class => 'flight-select'} do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
 
     <h2>Passenger Details</h2>
@@ -53,5 +54,6 @@
       </div>
     <% end %>
   <br><br>
-  <%= f.submit %>
+  <%= submit_tag("Confirm Booking", class: "submit-button") %>
 <% end %>
+</div>

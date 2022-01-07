@@ -1,55 +1,60 @@
-<h1>Please enter your flight details.</h1>
+<h1>Please enter your preferred flight details.</h1>
 
 <%= form_tag("", method: "get") do %>
-<h2>Search Options</h2>
-  <%= label_tag(:departure_airport, "Departing from:") %>
-  <%= select_tag(:departure_airport, options_for_select(@departure_options)) %>
-  <%= label_tag(:arrival_airport, "Destination:") %>
-  <%= select_tag(:arrival_airport, options_for_select(@arrival_options)) %>
-  <%= label_tag( :date, "Departure Date:")%>
-  <%= date_field_tag( :date  )%>
-  <%= label_tag( :passengers, "Number of Passengers:")%>
-  <%= select_tag(:passengers, options_for_select([1,2,3,4])) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class ="container">
+  <h2>Search Options</h2>
+    <%= label_tag(:departure_airport, "Departing from:") %>
+    <%= select_tag(:departure_airport, options_for_select(@departure_options)) %>
+    <%= label_tag(:arrival_airport, "Destination:") %>
+    <%= select_tag(:arrival_airport, options_for_select(@arrival_options)) %>
+    <%= label_tag( :date, "Departure Date:")%>
+    <%= date_field_tag( :date  )%>
+    <%= label_tag( :passengers, "Number of Passengers:")%>
+    <%= select_tag(:passengers, options_for_select([1,2,3,4])) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
 
 <% unless params[:passengers].nil? %>
-  <h2>Search Details</h2>
-  <p><%= "#{params[:departure_airport]}"%> to <%= "#{params[:arrival_airport]}"%></p>
-  <p><%= "#{params[:passengers]}"%> Passengers</p>
-  <% unless params[:date] == "" %>
-    <p><%= "#{params[:date].to_datetime.strftime("%d %b, %Y")  }"%></p>
-  <% end %>
-  <p>Number of Passengers: <%= "#{params[:passengers]}"%></p>
-
-  <h2>Passenger Details</h2>
-  <%= form_tag("/bookings/new", method: "get") do %>
-  <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
-    <table>
-      <tr>
-        <th><%= label_tag(:selected_flight_id, "Select Flight")%></th>
-        <th>Departure Airport</th>
-        <th>Arrival Airport</th>
-        <th>Departure Date</th>
-        <th>Departure Time</th>
-        <th>Duration</th>
-        <th>Arrival Date</th>
-        <th>Arrival Time</th>
-      </tr>
-      <% @flights.order(:start_datetime).each do |flight|%>
+  <div class ="container">
+    <h2>Search Details</h2>
+    <p><%= "#{params[:departure_airport]}"%> to <%= "#{params[:arrival_airport]}"%></p>
+    <p>Number of Passengers: <%= "#{params[:passengers]}"%></p>
+    <% unless params[:date] == "" %>
+      <p><%= "#{params[:date].to_datetime.strftime("%d %b, %Y")  }"%></p>
+    <% end %>
+  </div>
+  
+  <div class ="container flight-details">
+  <h1>Select a flight</h1>
+    <%= form_tag("/bookings/new", method: "get", class: "flight-select") do %>
+    <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
+      <table>
         <tr>
-          <td><%= radio_button_tag(:selected_flight_id, flight.id) %></td>
-          <td><%= flight.departure_airport.city %></td>
-          <td><%= flight.arrival_airport.city %></td>
-          <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
-          <td><%= flight.start_datetime.strftime("%H:%M") %></td>
-          <td><%= flight.duration.strftime("%H:%M") %></td>
-          <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
-          <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
+          <th><%= label_tag(:selected_flight_id, "Select Flight")%></th>
+          <th>Departure Airport</th>
+          <th>Arrival Airport</th>
+          <th>Departure Date</th>
+          <th>Departure Time</th>
+          <th>Duration</th>
+          <th>Arrival Date</th>
+          <th>Arrival Time</th>
         </tr>
-      <% end %>
-    </table>
-    <%= submit_tag("Select Flight") %>
-  <% end %>
+        <% @flights.order(:start_datetime).each do |flight|%>
+          <tr>
+            <td><%= radio_button_tag(:selected_flight_id, flight.id) %></td>
+            <td><%= flight.departure_airport.city %></td>
+            <td><%= flight.arrival_airport.city %></td>
+            <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
+            <td><%= flight.start_datetime.strftime("%H:%M") %></td>
+            <td><%= flight.duration.strftime("%H:%M") %></td>
+            <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
+            <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= submit_tag("Book Flight", class: "submit-button") %>
+    <% end %>
+    </div>
 <% end %>
 

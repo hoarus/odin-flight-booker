@@ -1,3 +1,30 @@
 // Place all the styles related to the Flights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.container {
+  margin: 10px;
+}
+
+.flight-details {
+  border: solid darkorchid 2px; 
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.flight-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 15px;
+}
+
+.submit-button {
+  height: 60px;
+  width: 250px;
+  font-size: 16px;
+  font-weight: bold;
+}

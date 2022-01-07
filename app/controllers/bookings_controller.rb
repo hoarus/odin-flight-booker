@@ -9,12 +9,16 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save
-      flash[:notice] = 'Booking successfully completed!'
-      redirect_to booking_path(@booking)
-    else
-      flash[:alert] = 'An error occured!'
-      render "new"
+
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to booking_path(@booking), notice: "Booking was successfully created." }
+        format.json { render :show, status: :created, location: @booking }
+      else
+        @flight = Flight.find(params[:booking][:flight_id])
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -37,7 +37,19 @@
 
 <%= form_for (@booking) do |f| %>
   <%= f.hidden_field :flight_id, value: @flight.id %>
+
     <h2>Passenger Details</h2>
+       <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% @booking.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
     <% i = 0%>
     <%= f.fields_for :passengers do |p_form| %>
       <div>

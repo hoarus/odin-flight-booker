@@ -27,7 +27,7 @@
   
   <div class ="container flight-details">
   <h1>Select a flight</h1>
-    <%= form_tag("/bookings/new", method: "get", class: "flightselect") do %>
+    <%= form_tag("/bookings/new", method: "get", class: "flight-select") do %>
     <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
       <table>
         <tr>

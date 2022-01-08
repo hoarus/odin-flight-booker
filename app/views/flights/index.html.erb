@@ -27,7 +27,7 @@
   
   <div class ="container flight-details">
   <h1>Select a flight</h1>
-    <%= form_tag("/bookings/new", method: "get", class: "flight-select") do %>
+    <%= form_tag("/bookings/new", method: "get", class: "flightselect") do %>
     <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
       <table>
         <tr>
@@ -40,7 +40,7 @@
           <th>Arrival Date</th>
           <th>Arrival Time</th>
         </tr>
-        <% @flights.order(:start_datetime).each do |flight|%>
+        <%@flights.order(:start_datetime).each do |flight|%>
           <tr>
             <td><%= radio_button_tag(:selected_flight_id, flight.id) %></td>
             <td><%= flight.departure_airport.city %></td>

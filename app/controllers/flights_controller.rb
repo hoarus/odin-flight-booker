@@ -15,8 +15,8 @@ class FlightsController < ApplicationController
       @flights = @flights.where(arrival_airport: @arrival_city )
     end
 
-    if(params.include?(:date) && (params[:date] != nil))
-      @flights = @flights.where("start_datetime LIKE ?", params[:date] + "%")
+    if(params.include?(:date) && (params[:date] != ""))
+      # @flights = @flights.where("start_datetime LIKE ?", params[:date] + "%")
     end
 
 

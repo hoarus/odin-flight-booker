@@ -109,3 +109,20 @@ WORKIGN COPY
     params.require(:booking).permit(:flight_id, passengers_attributes: [:name, :email])
   end
 end
+
+
+@flights.order(:start_datetime).each do |flight|%>
+          <tr>
+            <td><%= radio_button_tag(:selected_flight_id, flight.id) %></td>
+            <td><%= flight.departure_airport.city %></td>
+            <td><%= flight.arrival_airport.city %></td>
+            <td><%= flight.start_datetime.strftime("%d %b, %Y") %></td>
+            <td><%= flight.start_datetime.strftime("%H:%M") %></td>
+            <td><%= flight.duration.strftime("%H:%M") %></td>
+            <td><%= (flight.start_datetime + flight.duration).strftime("%d %b, %Y") %></td>
+            <td><%= (flight.start_datetime + flight.duration).strftime("%H:%M") %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= submit_tag("Book Flight", class: "submit-button") %>
+    <% end %>

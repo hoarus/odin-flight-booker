@@ -1,0 +1,17 @@
+Your flight has been booked, <%= @passenger.name %>
+===============================================
+
+Your flight details:
+
+Departure Airport: <%= @booking.flight.departure_airport.city %>
+Arrival Airport: <%= @booking.flight.arrival_airport.city %>
+
+Departure Date: <%= @booking.flight.start_datetime.strftime("%d %b, %Y") %>
+Departure Time: <%= @booking.flight.start_datetime.strftime("%H:%M") %>
+
+Duration: <%= @booking.flight.duration.strftime("%H:%M") %>
+
+Arrival Date: <%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%d %b, %Y") %>
+Arrival Time: <%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%H:%M") %>
+
+          

@@ -11,4 +11,11 @@ class Flight < ApplicationRecord
   def departure_date_formatted
     self.start_datetime.strftime("%m/%d/%Y")
   end
+
+  def duration_formatted
+    hours = self.duration.strftime("%I").to_i
+    minutes = self.duration.strftime("%M").to_f
+    hour_fraction = (minutes/60* 10).to_i
+    return "#{hours}.#{hour_fraction} hours"
+  end
 end

@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
     @flights = Flight.all
     @departure_options = Flight.all.map{ |flight| [ flight.departure_airport.city ] }.uniq
     @arrival_options = Flight.all.map{ |flight| [ flight.arrival_airport.city ] }.uniq
-    @date_options = Flight.all.map{ |flight| [ flight.start_datetime ] }.uniq
+    @date_options = Flight.all.map{ |flight| [ flight.start_datetime.strftime("%b %d, %Y") ] }.uniq
 
     if(params.include?(:departure_airport))
       @departure_city =  (Airport.find_by city: params[:departure_airport])

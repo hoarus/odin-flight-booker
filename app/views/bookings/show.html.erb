@@ -3,27 +3,15 @@
 <p>Your flight and passenger details are below.</p>
 
 
-<h2>Your Flight Details</h2>
-  <table>
-    <tr>
-      <th>Departure Airport</th>
-      <th>Arrival Airport</th>
-      <th>Departure Date</th>
-      <th>Departure Time</th>
-      <th>Duration</th>
-      <th>Arrival Date</th>
-      <th>Arrival Time</th>
-    </tr>
-    <tr>
-      <td><%= @booking.flight.departure_airport.city %></td>
-      <td><%= @booking.flight.arrival_airport.city %></td>
-      <td><%= @booking.flight.start_datetime.strftime("%d %b, %Y") %></td>
-      <td><%= @booking.flight.start_datetime.strftime("%H:%M") %></td>
-      <td><%= @booking.flight.duration.strftime("%H:%M") %></td>
-      <td><%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%d %b, %Y") %></td>
-      <td><%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%H:%M") %></td>
-    </tr>
-  </table>
+<h2>Flight Details</h2>
+<div class="selected-flight">
+  <div class="selected-date"><%= @booking.flight.start_datetime.strftime("%d %b, %Y") %></div>
+  <div class="selected-airports">
+    <%= @booking.flight.departure_airport.city %> (<%= @booking.flight.departure_airport.code %>)
+    - <%= @booking.flight.arrival_airport.city %> (<%= @booking.flight.arrival_airport.code %>) </div>
+  <div class="selected-times"><%= (@booking.flight.start_datetime.strftime("%H:%M")) %> - <%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%H:%M") %> </div>
+   <div class="selected-duration">(<%= @booking.flight.duration_formatted %>)</div>
+</div>
 
   <h2>Passenger Details</h2>
   <table>

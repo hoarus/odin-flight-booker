@@ -32,10 +32,16 @@
   grid-template-columns: 1fr 1fr;
   border: 1px solid peru;
   width: 100%;
+  padding: 0.5rem;
+  background-color: lightpink;
 }
 
 .flight-attribute {
   text-align: center;
+}
+
+.flight-duration {
+  grid-column: span 2;
 }
 
 .flight-select {
@@ -51,4 +57,27 @@
   width: 15rem;
   max-width: 100%;
   font-weight: bold;
+}
+
+.flight-radio {
+  grid-column: span 2;
+  text-align: center;
+  padding: 0.5rem;
+
+}
+
+.flight-radio>* {
+  height: 1.5rem;
+  border: 0px;
+  width: 100%;
+}
+
+.selected-flight {
+  text-align: center;
+}
+
+.passenger-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
 }

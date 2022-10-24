@@ -65,10 +65,3 @@ th {
   padding: 8px;
   border-collapse: collapse;
 }
-
-.find-flight-form {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  gap: 0.5rem;
-}

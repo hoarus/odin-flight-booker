@@ -1,16 +1,11 @@
-<h1>Please enter your preferred flight details.</h1>
+<h1>Search for Flights</h1>
 
 <%= form_tag("", method: "get") do %>
 <div class ="container">
-  <h2>Search Options</h2>
-    <%= label_tag(:departure_airport, "Departing from:") %>
-    <%= select_tag(:departure_airport, options_for_select(@departure_options)) %>
-    <%= label_tag(:arrival_airport, "Destination:") %>
-    <%= select_tag(:arrival_airport, options_for_select(@arrival_options)) %>
-    <%= label_tag( :date, "Departure Date:")%>
-    <%= date_field_tag( :date  )%>
-    <%= label_tag( :passengers, "Number of Passengers:")%>
-    <%= select_tag(:passengers, options_for_select([1,2,3,4])) %>
+    <%= select_tag(:departure_airport, options_for_select(@departure_options), include_blank: "Origin") %>
+    <%= select_tag(:arrival_airport, options_for_select(@arrival_options), include_blank: "Destination") %>
+     <%= select_tag(:date, options_for_select(@date_options), include_blank: "Date") %>
+    <%= select_tag(:passengers, options_for_select([1,2,3,4]), include_blank: "Passengers") %>
     <%= submit_tag("Search") %>
   <% end %>
 </div>

@@ -7,20 +7,36 @@
   margin: 10px;
 }
 
+.find-flight-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.find-flight-form>* {
+  width: 80%;
+}
+
 .flight-details {
   border: solid darkorchid 2px;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
+  width: 80%;
 }
 
 .flight-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: 1px solid peru;
+  width: 100%;
 }
 
-.flight-attribute {}
+.flight-attribute {
+  text-align: center;
+}
 
 .flight-select {
   display: flex;
@@ -31,8 +47,8 @@
 }
 
 .submit-button {
-  height: 60px;
-  width: 250px;
-  font-size: 16px;
+  height: 4rem;
+  width: 15rem;
+  max-width: 100%;
   font-weight: bold;
 }

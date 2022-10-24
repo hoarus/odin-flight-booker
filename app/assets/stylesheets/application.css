@@ -38,11 +38,20 @@ h2 {
   text-decoration: none;
 }
 
+.body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .page-content {
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 50rem;
+  border: solid 2px black;
 }
 
 table>* {
@@ -57,8 +66,9 @@ th {
   border-collapse: collapse;
 }
 
-.container {
+.find-flight-form {
   display: flex;
   flex-direction: column;
-
+  width: 80%;
+  gap: 0.5rem;
 }

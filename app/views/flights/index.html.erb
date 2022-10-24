@@ -2,23 +2,15 @@
 
 <%= form_tag("", method: "get") do %>
 <div class ="container">
-    <%= select_tag(:departure_airport, options_for_select(@departure_options), include_blank: "Origin") %>
-    <%= select_tag(:arrival_airport, options_for_select(@arrival_options), include_blank: "Destination") %>
-     <%= select_tag(:date, options_for_select(@date_options), include_blank: "Date") %>
-    <%= select_tag(:passengers, options_for_select([1,2,3,4]), include_blank: "Passengers") %>
+    <%= select_tag(:departure_airport, options_for_select(@departure_options, selected: params[:departure_airport]), include_blank: "Origin") %>
+    <%= select_tag(:arrival_airport, options_for_select(@arrival_options, selected: params[:arrival_airport]), include_blank: "Destination") %>
+     <%= select_tag(:date, options_for_select(@date_options, selected: params[:date]), include_blank: "Date") %>
+    <%= select_tag(:passengers, options_for_select([1,2,3,4], selected: params[:passengers]), include_blank: "Passengers") %>
     <%= submit_tag("Search") %>
   <% end %>
 </div>
 
 <% unless params[:passengers].nil? %>
-  <div class ="container">
-    <h2>Search Details</h2>
-    <p><%= "#{params[:departure_airport]}"%> to <%= "#{params[:arrival_airport]}"%></p>
-    <p>Number of Passengers: <%= "#{params[:passengers]}"%></p>
-    <% unless params[:date] == "" %>
-      <p><%= "#{params[:date].to_datetime.strftime("%d %b, %Y")  }"%></p>
-    <% end %>
-  </div>
   
   <div class ="container flight-details">
   <h1>Select a flight</h1>

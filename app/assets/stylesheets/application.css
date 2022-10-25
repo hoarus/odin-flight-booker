@@ -117,6 +117,7 @@ footer {
 
 footer>a {
   text-decoration: none;
+  -webkit-color: var(--primary-accent);
 }
 
 footer>a:visited {

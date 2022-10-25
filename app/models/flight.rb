@@ -9,7 +9,7 @@ class Flight < ApplicationRecord
   validates :start_datetime, presence: true
 
   def departure_date_formatted
-    self.start_datetime.strftime("%m/%d/%Y")
+    self.start_datetime.strftime("%b %d, %Y")
   end
 
   def duration_formatted

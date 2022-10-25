@@ -1,10 +1,10 @@
 <h1>Search for Flights</h1>
 
 <%= form_tag("", method: "get", class: "find-flight-form") do %>
-    <%= select_tag(:departure_airport, options_for_select(@departure_options, selected: params[:departure_airport]), include_blank: "Origin") %>
-    <%= select_tag(:arrival_airport, options_for_select(@arrival_options, selected: params[:arrival_airport]), include_blank: "Destination") %>
-     <%= select_tag(:date, options_for_select(@date_options, selected: params[:date]), include_blank: "Date") %>
-    <%= select_tag(:passengers, options_for_select([1,2,3,4], selected: params[:passengers]), include_blank: "Passengers") %>
+    <%= select_tag(:departure_airport, options_for_select(@departure_options, selected: params[:departure_airport]), include_blank: "--Origin--") %>
+    <%= select_tag(:arrival_airport, options_for_select(@arrival_options, selected: params[:arrival_airport]), include_blank: "--Destination--") %>
+     <%= select_tag(:date, options_for_select(@date_options, selected: params[:date]), include_blank: "--Date--") %>
+    <%= select_tag(:passengers, options_for_select([1,2,3,4], selected: params[:passengers]), include_blank: "--Passengers--") %>
     <%= submit_tag("Search", class: "submit-button") %>
   <% end %>
 

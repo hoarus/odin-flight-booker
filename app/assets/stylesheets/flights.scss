@@ -34,7 +34,27 @@
   width: 100%;
   padding: 0.5rem;
   background-color: lightpink;
+  //Prevent Select
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 }
+
+.flight-container:hover {
+  background-color: darkcyan;
+}
+
+.container-selected,
+.container-selected:hover {
+  background-color: deepskyblue;
+}
+
+
+
+
 
 .flight-attribute {
   text-align: center;

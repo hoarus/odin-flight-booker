@@ -12,7 +12,7 @@
   
   <div class ="container flight-details">
   <h1>Select a flight</h1>
-  <h2><% params[:date] %></h2> <!-- not working -->
+  <h2><%= params[:date]%></h2> <!-- not working -->
     <%= form_tag("/bookings/new", method: "get", class: "flight-select") do %>
     <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
     <%@flights.order(:start_datetime).each do |flight|%>

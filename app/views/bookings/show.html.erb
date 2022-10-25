@@ -1,10 +1,10 @@
-<h2>Your flight has been booked!</h2>
+<h2 class="minimal-bottom">Your flight has been booked!</h2>
 
 <p>Your flight and passenger details are below.</p>
 
 
-<h2>Flight Details</h2>
-<div class="selected-flight">
+<h2 class="minimal-bottom">Flight Details</h2>
+<div class="flight-details">
   <div class="selected-date"><%= @booking.flight.start_datetime.strftime("%d %b, %Y") %></div>
   <div class="selected-airports">
     <%= @booking.flight.departure_airport.city %> (<%= @booking.flight.departure_airport.code %>)
@@ -13,11 +13,11 @@
    <div class="selected-duration">(<%= @booking.flight.duration_formatted %>)</div>
 </div>
 
-  <h2>Passenger Details</h2>
-  <table>
+  <h2 class="minimal-bottom">Passenger Details</h2>
+  <table class="flight-details">
     <tr>
       <th>Name</th>
-      <th>Email Address</th>
+      <th>Email</th>
     </tr>
     <% @booking.passengers.each do |passenger|%>
     <tr>

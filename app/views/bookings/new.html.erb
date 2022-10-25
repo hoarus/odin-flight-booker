@@ -10,7 +10,7 @@
     <%= @flight.departure_airport.city %> (<%= @flight.departure_airport.code %>)
     - <%= @flight.arrival_airport.city %> (<%= @flight.arrival_airport.code %>) </div>
   <div class="selected-times"><%= (@flight.start_datetime.strftime("%H:%M")) %> - <%= (@flight.start_datetime + @flight.duration).strftime("%H:%M") %> </div>
-   <div class="selected-duration">(<%= @flight.duration_formatted %>)</div>
+   <div class="selected-duration"><%= @flight.duration_formatted %></div>
 </div>
 
 <div class ="container">

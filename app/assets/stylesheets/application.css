@@ -14,28 +14,56 @@
  *= require_self
  */
 
-
+:root {
+  --primary-color: #A31621;
+  --secondary-color: #4e8098;
+  --tertiary-color: #90c2e7;
+  --primary-accent: #FCF7F8;
+  --secondary-accent: #ced3dc;
+  --dark-font: #2a2727;
+  color: var(--dark-font);
+}
 
 header {
-  background-color: darkorchid;
+  background-color: var(--primary-color);
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
+  text-align: center;
+  color: var(--primary-accent);
 }
+
+header>p {
+  font-size: 1.2rem;
+  margin-top: 0px;
+}
+
+header>h1 {
+  margin-bottom: 0.8rem;
+  color: var(--primary-accent);
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+}
+
 
 h1,
 h2 {
   text-align: center;
+  color: var(--secondary-color);
 }
 
-.header-title {
-  color: peachpuff;
-}
+
+
 
 .header-link {
   color: inherit;
   text-decoration: none;
+}
+
+.header-link:hover {
+  color: var(--secondary-accent)
 }
 
 .body-container {
@@ -55,14 +83,26 @@ h2 {
   gap: 1rem;
 }
 
-table>* {
-  text-align: center;
-
+.submit-button {
+  height: 4rem;
+  width: 15rem;
+  max-width: 100%;
+  font-weight: bold;
+  background-color: var(--secondary-color);
+  color: var(--primary-accent);
+  border: solid 2px var(--secondary-accent);
+  border-radius: 1rem;
 }
 
-th {
-  border-bottom: solid 2px black;
-  gap: 2px;
-  padding: 8px;
-  border-collapse: collapse;
+.submit-button:hover {
+  background-color: var(--primary-color);
+}
+
+.minimal-bottom {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+table {
+  border-spacing: 0.5rem;
 }

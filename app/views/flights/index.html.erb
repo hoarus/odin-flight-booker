@@ -15,8 +15,7 @@
   <h2><%= params[:date]%></h2>
     <%= form_tag("/bookings/new", method: "get", class: "flight-select") do %>
       <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
-      <%@flights.order(:start_datetime).select{|f| f.departure_date_formatted == params[:date]}.each do |flight|%>
-
+      <%@flights.each do |flight|%>
           <div class="flight-container">
             <div class="flight-radio"><%= radio_button_tag(:selected_flight_id, flight.id, :class => "flight-selector") %></div>
             <div class="flight-attribute"><%= flight.departure_airport.code %></div>

@@ -16,7 +16,7 @@ class FlightsController < ApplicationController
     end
 
     if(params.include?(:date) && (params[:date] != ""))
-      # @flights = @flights.where("start_datetime LIKE ?", params[:date] + "%")
+      @flights = @flights.order(:start_datetime).select{|f| f.departure_date_formatted == params[:date]}
     end
 
 

@@ -17,7 +17,7 @@
     <%= hidden_field_tag(:number_of_passengers, params[:passengers]) %>
     <%@flights.order(:start_datetime).each do |flight|%>
       <div class="flight-container">
-        <div class="flight-radio"><%= radio_button_tag(:selected_flight_id, flight.id, class: "flight-selector") %></div>
+        <div class="flight-radio"><%= radio_button_tag(:selected_flight_id, flight.id, :class => "flight-selector") %></div>
         <div class="flight-attribute"><%= flight.departure_airport.code %></div>
         <div class="flight-attribute"><%= flight.arrival_airport.code %></div>
         <div class="flight-attribute"><%= flight.start_datetime.strftime("%H:%M") %></div>

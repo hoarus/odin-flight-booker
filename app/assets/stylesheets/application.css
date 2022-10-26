@@ -49,7 +49,8 @@ h1 {
 
 
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
   color: var(--secondary-color);
 }
@@ -130,4 +131,8 @@ footer>a:hover {
 
 .hidden {
   display: none;
+}
+
+.center {
+  text-align: center;
 }

@@ -19,12 +19,17 @@ function updateFlightSelection(elements, element) {
   selectFlight(element);
 }
 
-// Query Selector
-const flight_containers = document.getElementsByClassName("flight-container");
 
-//Initialise function and event listeners
-for (const container of flight_containers) {
-  deselectAllFlights(flight_containers);
-  container.onclick = () => updateFlightSelection(flight_containers, container)
+function setEventListeners() {
+  // Query Selector
+  const flight_containers = document.getElementsByClassName("flight-container");
+
+  //Initialise function and event listeners
+  for (const container of flight_containers) {
+    deselectAllFlights(flight_containers);
+    container.onclick = () => updateFlightSelection(flight_containers, container)
+  }
+
 }
 
+setEventListeners();

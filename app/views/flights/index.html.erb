@@ -9,7 +9,7 @@
   <% end %>
 
 
-<% unless params[:passengers]=="" %>
+<% unless (params[:passengers]=="" || params[:passengers].nil?) %>
   <div id="search-error" class="hidden">No Flights Found</div>
 
   <div class ="container flight-details">

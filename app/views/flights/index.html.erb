@@ -8,8 +8,10 @@
     <%= submit_tag("Search", class: "submit-button") %>
   <% end %>
 
-<% unless params[:passengers].nil? %>
-  
+
+<% unless params[:passengers]=="" %>
+  <div id="search-error" class="hidden">No Flights Found</div>
+
   <div class ="container flight-details">
   <h1>Select a flight</h1>
   <h2><%= params[:date]%></h2>
@@ -33,4 +35,5 @@
 
 
 <%= javascript_pack_tag 'select_flight' %>
+<%= javascript_pack_tag 'clean_flight_search' %>
 

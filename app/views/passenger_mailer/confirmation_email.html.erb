@@ -3,28 +3,28 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Your flight has been booked, <%= @passenger.name %></h1>
-    <h2>Your Flight Details</h2>
-      <table>
-        <tr>
-          <th>Departure Airport</th>
-          <th>Arrival Airport</th>
-          <th>Departure Date</th>
-          <th>Departure Time</th>
-          <th>Duration</th>
-          <th>Arrival Date</th>
-          <th>Arrival Time</th>
-        </tr>
-        <tr>
-          <td><%= @booking.flight.departure_airport.city %></td>
-          <td><%= @booking.flight.arrival_airport.city %></td>
-          <td><%= @booking.flight.start_datetime.strftime("%d %b, %Y") %></td>
-          <td><%= @booking.flight.start_datetime.strftime("%H:%M") %></td>
-          <td><%= @booking.flight.duration.strftime("%H:%M") %></td>
-          <td><%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%d %b, %Y") %></td>
-          <td><%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%H:%M") %></td>
-        </tr>
-      </table>
-    <p>We hope you enjoy your flight!</p>
-  </body>
+    <h2>Your free flight has been booked!</h2>
+    <p>Your flight and passenger details are below, <%= @passenger.name %></p>
+    <h2>Flight Details</h2>
+    <div class="flight-details">
+      <div class="selected-date"><%= @booking.flight.start_datetime.strftime("%d %b, %Y") %></div>
+      <div class="selected-airports">
+        <%= @booking.flight.departure_airport.city %> (<%= @booking.flight.departure_airport.code %>)
+        - <%= @booking.flight.arrival_airport.city %> (<%= @booking.flight.arrival_airport.code %>) </div>
+      <div class="selected-times"><%= (@booking.flight.start_datetime.strftime("%H:%M")) %> - <%= (@booking.flight.start_datetime + @booking.flight.duration).strftime("%H:%M") %> </div>
+      <div class="selected-duration">(<%= @booking.flight.duration_formatted %>)</div>
+    </div>
+
+    <div>
+      <h2 class="minimal-bottom">Passenger Details</h2>
+        <% i = 0 %>
+        <% @booking.passengers.each do |passenger|%>
+          <% i += 1%>
+          <h3 class="minimal-bottom">Passenger <%=i%></h3>
+          <p class="minimal-bottom center"><%=passenger.name%></p>
+          <p class="minimal-bottom center"><%=passenger.email%></p>
+        <% end%>
+    </div>
 </html>
+
+

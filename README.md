@@ -1,5 +1,40 @@
 # README
 
+## Getting Started
+### Prequisites
+Please install Rails, Git and Bundler.
+
+### Clone and Run Application
+
+* Clone this repo
+
+```git clone https://github.com/hoarus/odin-flight-booker.git```
+
+* Install the required gems
+
+```ruby
+$ bundle install
+```
+
+Migrate the database:
+```ruby
+$ rails db:migrate
+```
+Populate the database with seeded airports and flights:
+```ruby
+$ rails db:seed
+```
+Run a local server:
+```ruby
+$ rails s
+```
+Open browser to view application:
+```ruby
+localhost:3000
+```
+
+## Old
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

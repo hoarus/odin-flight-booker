@@ -1,5 +1,5 @@
 class PassengerMailer < ApplicationMailer
-  default from: 'flights@freeflightbookermail.samhoare.com'
+  default from: 'freeflightbooker@samhoare.com'
 
   def confirmation_email
     @passenger = params[:passenger]

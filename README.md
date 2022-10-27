@@ -8,7 +8,9 @@ Please install Rails, Git and Bundler.
 
 * Clone this repo
 
-```git clone https://github.com/hoarus/odin-flight-booker.git```
+```ruby
+git clone https://github.com/hoarus/odin-flight-booker.git
+```
 
 * Install the required gems
 

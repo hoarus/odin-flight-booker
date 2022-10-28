@@ -1,4 +1,4 @@
-# README: FREE FLIGHT BOOKER
+# README: Free Flight Booker
 
 ## Overview
 I developed this project as part of the [Odin Project](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker). It is intended to represent a small portion of the online flight search and booking process. I have stripped away all of the painful parts (advertisements, strongly encouraged upgrades and of course payment) and attempted to simplify the user experience as much as possible.

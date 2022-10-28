@@ -81,3 +81,5 @@ View your application in the browser:
 localhost:3000
 ```
 
+## Support
+For any questions in relation to the project, please reach out to me at hoarus@gmail.com

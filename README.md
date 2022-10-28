@@ -1,4 +1,29 @@
-# README
+# README: FREE FLIGHT BOOKER
+
+## Overview
+I developed this project as part of the [Odin Project](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker). It is intended to represent a small portion of the online flight search and booking process. I have stripped away all of the painful parts (advertisements, strongly encouraged upgrades and of course payment) and attempted to simplify the user experience as much as possible.
+
+## Functionality
+
+The application can be accessed [here](http://freeflightbooker.herokuapp.com/). Please note that it may take a few seconds to launch due to the hosting service I've used.
+
+### Search for Flights
+
+The user can search for free direct flights from select airports.
+
+![Search](/readme_images/flightbooker1.jpg)
+
+
+### Provide Passenger Details
+
+Once the user has selected their flight of choice, they are required to enter the name and email address of all passengers.
+
+![Search](/readme_images/flightbooker2.jpg)
+
+### Confirm Booking
+
+Once the user has confirme their booking, they are presented with a Booking Confirmation page. In addition, a confirmation email is sent to all passengers.
+
 
 ## Getting Started
 ### Prequisites
@@ -6,13 +31,13 @@ Please install Rails, Git and Bundler.
 
 ### Clone and Run Application
 
-* Clone this repo
+Clone this repo:
 
 ```ruby
 git clone https://github.com/hoarus/odin-flight-booker.git
 ```
 
-* Install the required gems
+Install the required gems:
 
 ```ruby
 $ bundle install
@@ -26,11 +51,11 @@ Populate the database with seeded airports and flights:
 ```ruby
 $ rails db:seed
 ```
-Run a local server:
+Run the application locally:
 ```ruby
 $ rails s
 ```
-Open browser to view application:
+View your application in the browser:
 ```ruby
 localhost:3000
 ```

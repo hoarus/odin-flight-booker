@@ -11,20 +11,20 @@ The application can be accessed [here](http://freeflightbooker.herokuapp.com/). 
 
 The user can search for free direct flights from select airports.
 
-![Search](/readme_images/flightbooker1.jpg)
+![Search](/readme_images/freeflightbooker1.jpg)
 
 
 ### Provide Passenger Details
 
 Once the user has selected their flight of choice, they are required to enter the name and email address of all passengers.
 
-![Search](/readme_images/flightbooker2.jpg)
+![Search](/readme_images/freeflightbooker2.jpg)
 
 ### Confirm Booking
 
 Once the user has confirmed their booking, they are presented with a booking confirmation page. In addition, a confirmation email is sent to all passengers.
 
-![Search](/readme_images/flightbooker3.jpg)
+![Search](/readme_images/freeflightbooker3.jpg)
 
 ## Technical Notes
 
